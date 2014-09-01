@@ -50,7 +50,7 @@ int main(int argc, char *argv[])
     
     
     //Display media;
-    medium = rowsValuesSum/rows;
+    medium = (float)rowsValuesSum/(float)rows;
     printf("%.2f \n", medium);
     
     
