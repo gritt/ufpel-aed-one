@@ -5,7 +5,7 @@ int main(int argc, char *argv[])
 {
     int rows, rowValue, rowsValuesSum, i;
     int *rowsValuesVector;
-    float medium;
+    float arithmeticMean;
     
     
     
@@ -44,14 +44,14 @@ int main(int argc, char *argv[])
         
         
         //Display values which the vector will contain
-        printf("%d \n", rowValue);
+        printf("%d,", rowValue);
     }
 
     
     
-    //Display media;
-    medium = (float)rowsValuesSum/(float)rows;
-    printf("%.2f \n", medium);
+    //Display medium;
+    arithmeticMean = (float)rowsValuesSum/(float)rows;
+    printf("\narithmetic mean: %.2f \n", arithmeticMean);
     
     
     
