@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
     //Number os rows in the input file
     fscanf(file, "%d", &rows);
 
-    
     //Allocate space store values on fileContents struct
     contentsStruct = malloc(rows * sizeof(struct fileContents));
     if (contentsStruct == NULL) {
@@ -38,13 +37,22 @@ int main(int argc, char *argv[])
     }
     
     
+    
     //Store input values on fileContents struct throw contentsStruct pointer
     for (i=0; i<rows; i++) {
-        
+        fscanf(file, "%d", &contentsStruct[i].value);
+        fgets(contentsStruct[i].name, 100, file);
     }
+    
+    fclose(file);
+    
+    
+    
+    //Output values from struct //cheating here <string.h>
+    for (i=0; i<rows; i++) {
+        printf("%d,%s", contentsStruct[i].value, contentsStruct[i].name);
+    }
+    
 
-    
-    
-	fclose(file);
     return 0;
 }
