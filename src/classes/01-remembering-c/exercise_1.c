@@ -46,7 +46,8 @@ int main(int argc, char *argv[])
         //Display values which the vector will contain
         printf("%d,", rowValue);
     }
-
+    
+    fclose(file);
     
     
     //Display medium;
@@ -55,6 +56,5 @@ int main(int argc, char *argv[])
     
     
     
-	fclose(file);
     return 0;
 }
