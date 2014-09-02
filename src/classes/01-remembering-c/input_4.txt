@@ -1,0 +1,3 @@
+2
+4 FirstStruct
+3 SecondStruct
