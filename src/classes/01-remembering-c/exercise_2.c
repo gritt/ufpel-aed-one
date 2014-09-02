@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 struct fileContents
 {
@@ -48,7 +47,7 @@ int main(int argc, char *argv[])
     
     
     
-    //Output values from struct //cheating here <string.h>
+    //Output values from struct
     for (i=0; i<rows; i++) {
         printf("%d,%s", contentsStruct[i].value, contentsStruct[i].name);
     }
