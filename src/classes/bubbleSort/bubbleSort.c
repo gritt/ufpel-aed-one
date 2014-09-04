@@ -22,7 +22,7 @@ void bubbleSort(int *array, int arraySize)
 
 int main()
 {
-    int rows, i, iterator, rowValue, *arrayToBeSort;
+    int rows, iterator, rowValue, *arrayToBeSort;
     double seconds;
     
     //first line - how many rows have to read
@@ -59,7 +59,7 @@ int main()
     
     //print time //human readable
     seconds = (double)(clockEnds - clockStarts) / (double)CLOCKS_PER_SEC;
-    printf("\n\nTime in seconds: %g", seconds);
+    printf("\nTime in seconds: %g", seconds);
     
     return 0;
 }
