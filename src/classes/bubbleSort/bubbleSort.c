@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 void bubbleSort(int *array, int arraySize)
 {
@@ -45,14 +46,15 @@ int main()
     }
     
     
-    //todo: start counting time
+    //start timer
+    clock_t clockStarts=clock();
+    
     bubbleSort(arrayToBeSort, rows);
-    //finish counting time
     
-    
-    for (i = 0; i < rows; i++) {
-        printf("%d\n", arrayToBeSort[i]);
-    }
+    clock_t clockEnds=clock();
+    //finishes timer
+
+    printf("The time taken is.. %lu ", (clockEnds - clockStarts));
     
     return 0;
 }
