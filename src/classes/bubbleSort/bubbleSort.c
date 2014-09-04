@@ -1,9 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+
+void bubbleSort(int *array, int arraySize)
+{
+    int i, j, temp;
+
+    for (i=1; i < arraySize; i++) {
+        
+        for (j = 0; j < arraySize - 1; j++) {
+
+            if (array[j] > array[j + 1]) {
+                temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+            
+        }
+    }
+}
 
 int main()
 {
-    int rows, iterator, rowValue, *arrayToBeSort;
+    int rows, i, iterator, rowValue, *arrayToBeSort;
     
     //first line - how many rows have to read
     scanf("%d", &rows);
@@ -19,52 +38,22 @@ int main()
     
     
     //store all in vector
-    for (iterator=0; iterator<rows; iterator++) {
+    for (iterator = 0; iterator < rows; iterator++) {
         
         scanf("%d", &rowValue);
         
         arrayToBeSort[iterator] = rowValue;
-        
-        printf("%d\n", rowValue);
+    }
+    
+    
+    //todo: start counting time
+    bubbleSort(arrayToBeSort, rows);
+    //finish counting time
+    
+    
+    for (i = 0; i < rows; i++) {
+        printf("%d\n", arrayToBeSort[i]);
     }
     
     return 0;
 }
-
-
-//int bubbleSort()
-//{
-//    int i, temp,
-//    
-//    bool isChanged = false;
-//    
-//    do {
-// 
-//        for (i=1; n - 1; i++) {
-//            
-//            
-//            if (v[i] > v[i+1]) {
-//                temp = v[i];
-//                v[i] = v[i+1];
-//                v[i+1] = temp;
-//                isChanged = true;
-//            }
-//            
-//        }
-//        
-//        
-//    } while (isChanged == false);
-    
-/*
- *
- inicio
-    repita
-        trocou ← falso paraide1at ́en-1 hacer
-        se v[i] > v[i+1] ent ̃ao temp ← v[i]
-            v[i] ← v[i+1]
-            ￼￼￼￼v[i+1] ← temp trocou ← verdadeiro
-        ￼￼ate nao trocou
- */
-    
-//    return 0;
-//}
