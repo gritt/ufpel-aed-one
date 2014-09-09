@@ -11,13 +11,53 @@ struct movieMetadata
     char title[100];
 };
 
-void populateMoviesCatalog()
+
+/*
+ * Check if a file can be opened
+ */
+int canOpenFile(FILE *file)
 {
-    printf("here");
+    if ((file = fopen("input.txt", "r")) == NULL) {
+        printf("ERROR: File could not be loaded");
+        return 0;
+    }
+    return 1;
+}
+
+/*
+ * Check if program can allocate memory
+ */
+int canAllocateMemory(int rows)
+{
+    if (malloc(rows * sizeof(struct movieMetadata)) == NULL) {
+        printf("Impossible to allocate space");
+        return 0;
+    }
+    return 1;
+}
+
+/*
+ * Read input file
+ * Allocate memory
+ * Populate memory with file contents
+ * 
+ * Return pointer to access catalog
+ */
+int populateMoviesCatalog()
+{
+    int rows;
+    struct movieMetadata *movie;
+    FILE *file;
     
-    //read input file
-    //allocate memory
-    //set movies from file
+    canOpenFile(file);
+    file = fopen("input.txt", "r");
+    
+    fscanf(file, "%d", &rows);
+    
+    canAllocateMemory(rows);
+    movie = malloc(rows * sizeof(struct movieMetadata));
+    
+    return 1;
 }
 
 

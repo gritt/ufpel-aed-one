@@ -1,6 +1,6 @@
 #ifndef MOVIE_H_
 #define MOVIE_H_
 
-void populateMoviesCatalog();
+int populateMoviesCatalog();
 
 #endif
