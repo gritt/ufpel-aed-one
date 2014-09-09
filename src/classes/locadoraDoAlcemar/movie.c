@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+
 #include "movie.h"
 
 struct movieMetadata
@@ -10,7 +12,6 @@ struct movieMetadata
     char category;
     char title[100];
 };
-
 
 /*
  * Check if a file can be opened
@@ -49,13 +50,25 @@ int populateMoviesCatalog()
     struct movieMetadata *movie;
     FILE *file;
     
-    canOpenFile(file);
+    canOpenFile(file); //check
     file = fopen("input.txt", "r");
     
     fscanf(file, "%d", &rows);
     
-    canAllocateMemory(rows);
+    canAllocateMemory(rows); //check
     movie = malloc(rows * sizeof(struct movieMetadata));
+    
+    
+    
+    
+    printf("%d", rows);
+    
+    
+    
+    
+    
+    
+    
     
     return 1;
 }
