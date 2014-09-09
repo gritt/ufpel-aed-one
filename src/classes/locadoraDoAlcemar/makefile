@@ -1,7 +1,10 @@
-app: movie.o app.o
-	gcc movie.o app.o -o app
+app: parser.o movie.o app.o
+	gcc parser.o movie.o app.o -o app
 
-movie.o: movie.c movie.h
+parser.o: parser.c parser.h
+	gcc -c parser.c
+
+movie.o: movie.c movie.h parser.h
 	gcc -c movie.c
 
 app.o: app.c movie.h
