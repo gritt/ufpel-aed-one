@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "movie.h"
+#include "parser.h"
 
 struct movieMetadata
 {
@@ -46,20 +47,40 @@ int canAllocateMemory(int rows)
  */
 int populateMoviesCatalog()
 {
-    int rows;
+    int i, rows;
+    char rowString[255];
+    
     struct movieMetadata *movie;
     FILE *file;
+    
     
     canOpenFile(file); //check
     file = fopen("input.txt", "r");
     
+    
     fscanf(file, "%d", &rows);
+    
     
     canAllocateMemory(rows); //check
     movie = malloc(rows * sizeof(struct movieMetadata));
     
     
     
+    
+    
+    
+    //todo idea.
+    for (i = 1; i < rows; i++) {
+        
+        //all row contents
+        fgets(rowString, 255, file);
+        
+
+        movie[i].id     =   i;
+        movie[i].title  =   getTitle(rowString);
+        movie[i].year   =   getYear(rowString);
+        movie[i].category = getCategory(rowString);
+    }
     
     printf("%d", rows);
     
