@@ -1,14 +1,3 @@
-char getTitle()
-{
-    return 'B';
-}
-
-char getCategory()
-{
-    return 'A';
-}
-
-int getYear()
-{
-    return 1;
-}
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
