@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 #include "movie.h"
 
@@ -9,27 +10,25 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
     int rowSize;
     char rowString[255];
     
-    int titleStringSize;
-    int categoryStringSize;
-
-    
     
     printf ("reading library, it can take some miliseconds\n");
-
     
     
     for (int i = 0; i < rows; i++) {
         
-        //pre set vars
+        //aux variables
         int isWritingOn = 0;
-        titleStringSize = 0;
-        categoryStringSize = 0;
-        
+
+        int titleStringSize = 0;
+        int categoryStringSize = 0;
+
+        int length = 0;
+        int year = 0;
+        int copies = 0;
         
         
         //save id
         movie[i].id = i;
-        
         
         
         //all row contents
@@ -43,9 +42,7 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
             continue;
         }
         
-        
-        
-        for (int j=0; j < rowSize; j++) {
+        for (int j = 0; j < rowSize; j++) {
             
             if (rowString[j] == ';') {
                 //change where it's going to save
@@ -55,23 +52,54 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
                 j++;
             }
             
+            //title //get char by char
             if (isWritingOn == 0) {
                 
                 movie[i].title[titleStringSize] = rowString[j];
-                
                 titleStringSize++;
             }
-    
+            
+            //year //get it all once
+            if (isWritingOn == 1) {
+
+                //atoi.
+                //stackoverflow.com/a/868499/2523445
+                year = atoi(&rowString[j]);
+                movie[i].year = year;
+                
+                
+                // ex: 1998 = 4 chars, so increment j+4
+                // so the next char it is going to read
+                // is after year and not like 998 -> 98 -> 8
+                
+                //stackoverflow.com/a/4143035/2523445
+                length = (year == 0 ? 1 : (int)(log10(year)+1));
+                
+
+                //next valid string to read is on
+                //j + lentgh of the year string + 1(;)
+                j = j + length + 1;
+                isWritingOn++;
+            }
+            
+            //copies //get it all once
+            if (isWritingOn == 2) {
+
+                copies = atoi(&rowString[j]);
+                movie[i].copies = copies;
+                
+                length = (copies == 0 ? 1 : (int)(log10(copies)+1));
+                
+                j = j + length + 1;
+                isWritingOn++;
+            }
+            
+            //category //get char by char
+            if (isWritingOn == 3) {
+
+                movie[i].category[categoryStringSize] = rowString[j];
+                categoryStringSize++;
+            }
         }
     }
-    
-
-    
-    //testing, print
-    for (int k=0; k < rows; k++) {
-        
-        printf("%d \n", movie[k].id);
-        printf("%s \n", movie[k].title);
-    }
-
 }
