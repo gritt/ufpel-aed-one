@@ -3,11 +3,8 @@
 #include <string.h>
 
 
-
 #include "movie.h"
 #include "parser.h"
-
-
 
 
 /*
@@ -50,7 +47,7 @@ int populateMoviesCatalog()
     FILE *file;
     
     canOpenFile(file); //check
-    file = fopen("inputDev.txt", "r");
+    file = fopen("input.txt", "r");
     
     
     fscanf(file, "%d", &rows);
@@ -61,6 +58,21 @@ int populateMoviesCatalog()
 
 
     parseCatalog(rows, file, moviePointer);
+    
+    
+
+    // yey, content it's being saved on the right reference
+    //check out
+    for (int k=0; k < rows; k++) {
+        
+        printf("id :%d \n", moviePointer[k].id);
+        printf("title: %s \n", moviePointer[k].title);
+        
+        printf("year: %d \n", moviePointer[k].year);
+        printf("copies: %d \n", moviePointer[k].copies);
+
+        printf("category: %s \n", moviePointer[k].category);
+    }
     
 
     return 1;
