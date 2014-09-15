@@ -47,7 +47,7 @@ int populateMoviesCatalog()
     FILE *file;
     
     canOpenFile(file); //check
-    file = fopen("input.txt", "r");
+    file = fopen("inputDev.txt", "r");
     
     
     fscanf(file, "%d", &rows);
@@ -63,7 +63,7 @@ int populateMoviesCatalog()
 
     // yey, content it's being saved on the right reference
     //check out
-    for (int k=0; k < rows; k++) {
+    for (int k=1; k < rows; k++) {
         
         printf("id :%d \n", moviePointer[k].id);
         printf("title: %s \n", moviePointer[k].title);
