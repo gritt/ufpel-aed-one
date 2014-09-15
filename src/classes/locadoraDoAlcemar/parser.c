@@ -26,11 +26,6 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
         int year = 0;
         int copies = 0;
         
-        
-        //save id
-        movie[i].id = i;
-        
-        
         //all row contents
         fgets(rowString, 255, file);
         
@@ -38,9 +33,13 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
         rowSize = strlen(rowString);
 
         //skip invalid rows
-        if (rowSize <= 1) {
+        if (rowSize < 3) {
             continue;
+            printf("here");
         }
+        
+        //save id
+        movie[i].id = i;
         
         for (int j = 0; j < rowSize; j++) {
             
