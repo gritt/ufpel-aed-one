@@ -13,6 +13,8 @@ struct movieMetadata
 
 typedef struct movieMetadata movieType;
 
-int populateMoviesCatalog();
+movieType * populateMoviesCatalog();
+
+int countMoviesRows();
 
 #endif

@@ -38,7 +38,7 @@ int canAllocateMemory(int rows)
  * 
  * Return pointer to access catalog
  */
-int populateMoviesCatalog()
+movieType * populateMoviesCatalog()
 {
     int rows;
     movieType *moviePointer;
@@ -57,27 +57,25 @@ int populateMoviesCatalog()
     moviePointer = (movieType *)malloc(rows * sizeof(movieType));
 
 
+    //read from file, save to struct
     parseCatalog(rows, file, moviePointer);
     
-    
-
-    // yey, content it's being saved on the right reference
-    //check out
-    for (int k=1; k < rows; k++) {
-        
-        printf("id :%d \n", moviePointer[k].id);
-        printf("title: %s \n", moviePointer[k].title);
-        
-        printf("year: %d \n", moviePointer[k].year);
-        printf("copies: %d \n", moviePointer[k].copies);
-
-        printf("category: %s \n", moviePointer[k].category);
-    }
-    
-
-    return 1;
+    return moviePointer;
 }
 
+
+int countMoviesRows()
+{
+    int moviesRows;
+    
+    FILE *file;
+    
+    file = fopen("inputDev.txt", "r");
+
+    fscanf(file, "%d", &moviesRows);
+    
+    return moviesRows;
+}
 
 void locateMovie()
 {
