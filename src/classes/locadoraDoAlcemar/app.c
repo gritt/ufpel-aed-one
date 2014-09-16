@@ -5,31 +5,33 @@ void buildMenu()
 {
 }
 
-void chooseMenuOption()
-{
-}
-
-
-
-void saveAppState()
-{
-    //save which menu and movie/action user was performing
-    //todo: search for json encode n decode
-}
-
-
 int main ()
 {
-    populateMoviesCatalog();
+    movieType *moviePointer;
+    int librarySize;
     
-    //set input and output files;
+
+    //populate movie catalog from file
+    moviePointer = populateMoviesCatalog();
     
-    //populate catalog
     
+    //how much movies in library
+    librarySize = countMoviesRows();
+
     
-    //open appState file
-        //perform last user action
-        //or display menu actions
+    //show menu here;
+    
+    for (int k=1; k < librarySize; k++) {
+        
+        printf("id :%d \n", moviePointer[k].id);
+        printf("title: %s \n", moviePointer[k].title);
+        
+        printf("year: %d \n", moviePointer[k].year);
+        printf("copies: %d \n", moviePointer[k].copies);
+        
+        printf("category: %s \n", moviePointer[k].category);
+    }
+    
     
 }
 
