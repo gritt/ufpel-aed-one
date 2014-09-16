@@ -11,10 +11,13 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
     char rowString[255];
     
     
-    printf ("reading library, it can take some miliseconds\n");
+    printf ("\nreading library, it can take some miliseconds...\n\n");
     
     
     for (int i = 0; i < rows; i++) {
+        
+
+        printf("\n+");
         
         //aux variables
         int isWritingOn = 0;
@@ -42,6 +45,8 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
         movie[i].id = i;
         
         for (int j = 0; j < rowSize; j++) {
+            
+            printf("=");
             
             if (rowString[j] == ';') {
                 //change where it's going to save
@@ -101,4 +106,6 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
             }
         }
     }
+    
+    printf("\n\ndone!\n\n");
 }
