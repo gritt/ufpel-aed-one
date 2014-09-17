@@ -5,9 +5,9 @@
 
 void printMenu()
 {
-    //1 - search movie
-    //2 - locate movie
-    //3 - return movie
+    printf("\n(1) Search Movie. \n");
+    printf("\n(2) Return Movie. \n");
+    printf("\n(3) Locate Movie. \n");
 }
 
 int main ()
@@ -16,38 +16,34 @@ int main ()
     bool wantToExit;
     
     movieType *moviePointer;
-    
-    //populate movie catalog from file
+
     moviePointer = populateMoviesCatalog();
     
     
     //how much movies in library
     librarySize = countMoviesRows();
     
-    
-    
     printf("What do you search for in my humble movie store? \n");
     
-    
-    
     do {
+
+        printMenu();
         
         scanf("%d", &menuOption);
-        
         
         switch (menuOption) {
 
             case 1:
-                
+                searchMovie(/*pointer*/);
                 break;
             
             case 2:
-                
+                returnMovie();
                 break;
                 
             case 3:
+                locateMovie();
                 break;
-                
 
             default:
                 printf("\nInvalid option.\n");
@@ -57,8 +53,7 @@ int main ()
     } while (wantToExit == true);
 
     
-    //show menu here;
-    
+//show menu here;
 //    for (int k=1; k < librarySize; k++) {
 //        
 //        printf("id :%d \n", moviePointer[k].id);
