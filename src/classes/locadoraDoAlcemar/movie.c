@@ -77,7 +77,7 @@ int countMoviesRows()
     return moviesRows;
 }
 
-void locateMovie()
+void locateMovie(movieType *moviePointer)
 {
 }
 
