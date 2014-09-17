@@ -22,7 +22,7 @@ int main()
     arrayToBeSort = malloc(rows * sizeof(int));
     
     
-    //store all in vector
+    //store all in array
     for (iterator = 0; iterator < rows; iterator++) {
         
         scanf("%d", &rowValue);
