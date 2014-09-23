@@ -105,7 +105,16 @@ void returnMovie(movieType *moviePointer)
 
 void searchMovie(movieType *moviePointer, int librarySize)
 {
-	printf("\n Search by title, category or year: ");
+    char criteria[255];
+    
+    printf("\nSearch by title, category or year: ");
+    
+    scanf("%s", criteria);
+    
+
+    for (int i=0; i < librarySize; i++) {
+        //search here
+    }
 }
 
 void showMovie(movieType *moviePointer)
