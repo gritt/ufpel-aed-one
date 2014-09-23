@@ -36,7 +36,6 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
 
         //skip invalid rows
         if (rowSize < 3) {
-            printf("\nInvalid row, skip\n");
             continue;
         }
         
@@ -106,5 +105,5 @@ void parseCatalog(int rows, FILE *file, movieType *movie)
         }
     }
     
-    printf("\n\ndone!\n\n");
+    printf("\n\nDone! Library fully loaded.\n\n");
 }
