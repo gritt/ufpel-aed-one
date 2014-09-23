@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 
 #include "movie.h"
 
@@ -13,10 +12,9 @@ void printMenu()
 int main ()
 {
     int librarySize, menuOption;
-    bool wantToExit;
+    char continueBrowsing = 'Y';
     
     movieType *moviePointer;
-
     moviePointer = populateMoviesCatalog();
     
     
@@ -25,8 +23,9 @@ int main ()
     
     printf("What do you search for in my humble movie store? \n");
     
-    do {
 
+    while (continueBrowsing == 'Y') {
+    
         printMenu();
         
         scanf("%d", &menuOption);
@@ -34,23 +33,27 @@ int main ()
         switch (menuOption) {
 
             case 1:
-                searchMovie(/*pointer*/);
+                searchMovie(moviePointer, librarySize);
                 break;
-            
+                
             case 2:
-                returnMovie();
+                // returnMovie(moviePointer);
                 break;
                 
             case 3:
-                locateMovie();
+                locateMovie(moviePointer);
                 break;
 
             default:
                 printf("\nInvalid option.\n");
                 break;
         }
-    
-    } while (wantToExit == true);
+        
+        
+        printf("\n\nContinue browsing store? (Y/N): ");
+        
+        scanf("%c", &continueBrowsing);
+    }
 
     
 //show menu here;
