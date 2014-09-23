@@ -49,24 +49,9 @@ int main ()
                 break;
         }
         
+        scanf("%c", &continueBrowsing);
         
         printf("\n\nContinue browsing store? (Y/N): ");
-        
-        scanf("%c", &continueBrowsing);
     }
-
-    
-//show menu here;
-//    for (int k=1; k < librarySize; k++) {
-//        
-//        printf("id :%d \n", moviePointer[k].id);
-//        printf("title: %s \n", moviePointer[k].title);
-//        
-//        printf("year: %d \n", moviePointer[k].year);
-//        printf("copies: %d \n", moviePointer[k].copies);
-//        
-//        printf("category: %s \n", moviePointer[k].category);
-//    }
-    
 }
 
