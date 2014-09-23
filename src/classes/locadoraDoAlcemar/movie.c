@@ -47,7 +47,7 @@ movieType * populateMoviesCatalog()
     FILE *file;
     
     canOpenFile(file); //check
-    file = fopen("inputDev.txt", "r");
+    file = fopen("input.txt", "r");
     
     
     fscanf(file, "%d", &rows);
@@ -77,18 +77,37 @@ int countMoviesRows()
     return moviesRows;
 }
 
-void locateMovie(movieType *moviePointer)
+int locateMovie(movieType *moviePointer)
+{
+    int index;
+    
+    printf("\nInform the movie id you want to locate: ");
+
+    scanf("%d", &index);
+    
+    if (moviePointer[index].copies == 0) {
+        
+        printf("Sorry, this movie is not available");
+        
+        return 0;
+    }
+    
+    moviePointer[index].copies = (moviePointer[index].copies - 1);
+    
+    printf("\n\nDone, You've just located:\n %s", moviePointer[index].title);
+    
+    return 1;
+}
+
+void returnMovie(movieType *moviePointer)
 {
 }
 
-void returnMovie()
+void searchMovie(movieType *moviePointer, int librarySize)
 {
+	printf("\n Search by title, category or year: ");
 }
 
-void searchMovie()
-{
-}
-
-void showMovie()
+void showMovie(movieType *moviePointer)
 {
 }
