@@ -18,8 +18,8 @@ int main ()
     moviePointer = populateMoviesCatalog();
     
     
-    //how much movies in library
     librarySize = countMoviesRows();
+    
     
     printf("What do you search for in my humble movie store? \n");
     
@@ -48,10 +48,12 @@ int main ()
                 printf("\nInvalid option.\n");
                 break;
         }
+
+        printf("\n\nContinue browsing store? (Y/N):");
         
+        //workaround -- duplicate scanf to avoid \n issues
         scanf("%c", &continueBrowsing);
-        
-        printf("\n\nContinue browsing store? (Y/N): ");
+        scanf("%c", &continueBrowsing);
     }
 }
 
