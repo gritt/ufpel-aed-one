@@ -18,12 +18,10 @@ movieType * populateMoviesCatalog();
 int countMoviesRows();
 
 int locateMovie(movieType *moviePointer);
+int returnMovie(movieType *moviePointer);
+
 
 void searchMovie(movieType *moviePointer, int librarySize);
-
-
-
-// void returnMovie(movieType *moviePointer);
 
 // void showMovie(movieType *moviePointer);
 

@@ -102,8 +102,22 @@ int locateMovie(movieType *moviePointer)
     return 1;
 }
 
-void returnMovie(movieType *moviePointer)
+/**
+ * Return a movie (simply increment copies size)
+ */
+int returnMovie(movieType *moviePointer)
 {
+    int index;
+    
+    printf("\nInform the movie id you want to return: ");
+    
+    scanf("%d", &index);
+
+    moviePointer[index].copies = (moviePointer[index].copies + 1);
+    
+    printf("\n\nDone, You've just returned:\n %s", moviePointer[index].title);
+    
+    return 1;
 }
 
 /**
