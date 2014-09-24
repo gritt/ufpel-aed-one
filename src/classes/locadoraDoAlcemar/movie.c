@@ -46,14 +46,14 @@ movieType * populateMoviesCatalog()
     
     FILE *file;
     
-    canOpenFile(file); //check
+    canOpenFile(file);
     file = fopen("input.txt", "r");
     
     
     fscanf(file, "%d", &rows);
     
     
-    canAllocateMemory(rows); //check
+    canAllocateMemory(rows);
     moviePointer = (movieType *)malloc(rows * sizeof(movieType));
 
 
@@ -63,20 +63,23 @@ movieType * populateMoviesCatalog()
     return moviePointer;
 }
 
-
 int countMoviesRows()
 {
     int moviesRows;
     
     FILE *file;
     
-    file = fopen("inputDev.txt", "r");
+    file = fopen("input.txt", "r");
 
     fscanf(file, "%d", &moviesRows);
     
     return moviesRows;
 }
 
+/**
+ * Locate a movie form store
+ * Decreasing copies number
+ */
 int locateMovie(movieType *moviePointer)
 {
     int index;
@@ -87,7 +90,7 @@ int locateMovie(movieType *moviePointer)
     
     if (moviePointer[index].copies == 0) {
         
-        printf("Sorry, this movie is not available");
+        printf("\nSorry, this movie is not available");
         
         return 0;
     }
@@ -103,17 +106,30 @@ void returnMovie(movieType *moviePointer)
 {
 }
 
+/**
+ * Search by category on library
+ */
 void searchMovie(movieType *moviePointer, int librarySize)
 {
-    char criteria[255];
+    int comparationLimit=100;
+    char criteria[255], tmpTitle[255];
     
-    printf("\nSearch by title, category or year: ");
-    
+    printf("\nSearch by category: ");
+
     scanf("%s", criteria);
     
-
     for (int i=0; i < librarySize; i++) {
-        //search here
+        
+        //www.wikihow.com/Compare-Two-Strings-in-C-Programming
+        //todo develop something to compare strings by similarity, retuns int in percentage.
+        //that would be good here.
+        
+        int hasFoundByCategory = strcmp(criteria, moviePointer[i].category);
+        
+        if (hasFoundByCategory == -10) {
+            
+            printf("\nID: %d TITLE: %s", moviePointer[i].id, moviePointer[i].title);
+        }
     }
 }
 
