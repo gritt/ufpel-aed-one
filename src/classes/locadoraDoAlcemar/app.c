@@ -37,7 +37,7 @@ int main ()
                 break;
                 
             case 2:
-                // returnMovie(moviePointer);
+                returnMovie(moviePointer);
                 break;
                 
             case 3:
