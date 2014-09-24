@@ -7,6 +7,12 @@ parser.o: parser.c parser.h
 movie.o: movie.c movie.h parser.h
 	gcc -c movie.c
 
+	#
+	#
+	#use app inputFile.txt to execute (argv)
+	#
+	#
+
 app.o: app.c movie.h
 	gcc -c app.c
 clean:
