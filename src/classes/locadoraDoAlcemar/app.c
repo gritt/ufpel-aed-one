@@ -9,17 +9,16 @@ void printMenu()
     printf("\n(3) Locate Movie. \n");
 }
 
-int main ()
+int main (int argc, char *argv[])
 {
     int librarySize, menuOption;
     char continueBrowsing = 'Y';
     
     movieType *moviePointer;
-    moviePointer = populateMoviesCatalog();
+    moviePointer = populateMoviesCatalog(argv[1]);
     
     
-    librarySize = countMoviesRows();
-    
+    librarySize = countMoviesRows(argv[1]);
     
     printf("What do you search for in my humble movie store? \n");
     

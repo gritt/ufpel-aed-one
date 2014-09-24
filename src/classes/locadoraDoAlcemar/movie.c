@@ -6,19 +6,6 @@
 #include "movie.h"
 #include "parser.h"
 
-
-/*
- * Check if a file can be opened
- */
-int canOpenFile(FILE *file)
-{
-    if ((file = fopen("input.txt", "r")) == NULL) {
-        printf("ERROR: File could not be loaded");
-        return 0;
-    }
-    return 1;
-}
-
 /*
  * Check if program can allocate memory
  */
@@ -38,7 +25,7 @@ int canAllocateMemory(int rows)
  * 
  * Return pointer to access catalog
  */
-movieType * populateMoviesCatalog()
+movieType * populateMoviesCatalog(char filename[])
 {
     int rows;
     movieType *moviePointer;
@@ -46,8 +33,12 @@ movieType * populateMoviesCatalog()
     
     FILE *file;
     
-    canOpenFile(file);
-    file = fopen("input.txt", "r");
+    if ((file = fopen(filename, "r")) == NULL) {
+        printf("ERROR: File could not be loaded");
+        return moviePointer;
+    }
+    
+    file = fopen(filename, "r");
     
     
     fscanf(file, "%d", &rows);
@@ -63,13 +54,13 @@ movieType * populateMoviesCatalog()
     return moviePointer;
 }
 
-int countMoviesRows()
+int countMoviesRows(char filename[])
 {
     int moviesRows;
     
     FILE *file;
     
-    file = fopen("input.txt", "r");
+    file = fopen(filename, "r");
 
     fscanf(file, "%d", &moviesRows);
     

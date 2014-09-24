@@ -13,9 +13,9 @@ struct movieMetadata
 
 typedef struct movieMetadata movieType;
 
-movieType * populateMoviesCatalog();
+movieType * populateMoviesCatalog(char filename[]);
 
-int countMoviesRows();
+int countMoviesRows(char filename[]);
 
 int locateMovie(movieType *moviePointer);
 int returnMovie(movieType *moviePointer);
