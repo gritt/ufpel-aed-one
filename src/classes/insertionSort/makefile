@@ -1,0 +1,11 @@
+app: insertion.o app.o
+	gcc insertion.o app.o -o app
+
+insertion.o: insertion.c insertion.h
+	gcc -c insertion.c
+
+app.o: app.c insertion.h
+	gcc -c app.c
+
+clean:
+	rm app *.o
