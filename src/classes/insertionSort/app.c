@@ -17,14 +17,14 @@ int main()
     theArray = malloc(arraySize * sizeof(int));
     
     
-
-    
     populateTheArray(theArray, arraySize);
+    
     
     printTheArray(theArray, arraySize);
     
     insertionSort(theArray, arraySize);
     
-
+    printTheArray(theArray, arraySize);
+    
     return 1;
 }
