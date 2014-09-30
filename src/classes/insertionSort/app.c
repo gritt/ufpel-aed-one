@@ -11,7 +11,7 @@ int main()
     scanf("%d", &arraySize);
     
     if ((theArray = malloc(arraySize * sizeof(int))) == NULL) {
-        printf("Failed to allocated memory. exit");
+        printf("Failed to allocate memory. exit");
     }
     
     theArray = malloc(arraySize * sizeof(int));
