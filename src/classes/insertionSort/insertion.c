@@ -39,5 +39,5 @@ void printTheArray(int *array, int arraySize)
         printf(",");
     }
     
-    printf("}");
+    printf("} \n");
 }
