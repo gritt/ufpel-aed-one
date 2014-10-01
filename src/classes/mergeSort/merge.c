@@ -6,10 +6,13 @@
 void mergeSort(int *array, int *arrayCopy, int begin, int end)
 {
     //where 'end' is also the current array size;
-    printTheArray(array, end);
+    //printTheArray(array, end);
     
     //if passes it's the base case
-    if ((end - begin) == 1) {
+    if ((end - begin) <= BASE_CASE) {
+        
+        //uses insertionSort instead of spliting array again
+        insertionSort(array, end);
         return;
     }
     
