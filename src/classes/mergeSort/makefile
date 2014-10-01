@@ -9,7 +9,7 @@ app: merge.o app.o
 	#————————————————————————————-|
 
 merge.o: merge.c merge.h
-	gcc -c insertion.c
+	gcc -c merge.c
 
 app.o: app.c merge.h
 	gcc -c app.c
