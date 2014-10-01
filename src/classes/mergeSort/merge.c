@@ -1,12 +1,12 @@
 #include <stdio.h>
 
 #include "merge.h"
-
+#include "insertion.h"
 
 void mergeSort(int *array, int *arrayCopy, int begin, int end)
 {
     //where 'end' is also the current array size;
-    //printTheArray(array, end);
+    printTheArray(array, end);
     
     //if passes it's the base case
     if ((end - begin) == 1) {
@@ -55,7 +55,6 @@ void copyArray(int *array, int *arrayCopy, int begin, int end)
         array[i] = arrayCopy[i];
     }
 }
-
 
 void populateTheArray(int *array, int arraySize)
 {
