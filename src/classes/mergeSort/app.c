@@ -30,7 +30,11 @@ int main()
     int end = arraySize;
     
     
+    printTheArray(array, end);
+    
     mergeSort(theArray, theArrayCopy, begin, end);
+    
+    printTheArray(array, end);
 
     
     return 1;
