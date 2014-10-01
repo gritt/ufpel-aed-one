@@ -6,7 +6,10 @@
 int main()
 {
     int arraySize;
+
     int *theArray;
+    int *theArrayCopy;
+    
     
     scanf("%d", &arraySize);
     
@@ -14,16 +17,21 @@ int main()
         printf("Failed to allocate memory. exit");
     }
     
+    
     theArray = malloc(arraySize * sizeof(int));
+    theArrayCopy = malloc(arraySize * sizeof(int));
     
     
     populateTheArray(theArray, arraySize);
     
     
+    //define start and end of the array
+    int begin = theArray[0];
+    int end = arraySize;
     
+    
+    mergeSort(theArray, theArrayCopy, begin, end);
 
-    
-    printTheArray(theArray, arraySize);
     
     return 1;
 }
