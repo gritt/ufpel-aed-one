@@ -32,8 +32,6 @@ int main()
     int end = arraySize;
     
     
-    printTheArray(theArray, end);
-    
     
     clock_t clockStarts=clock();
     
@@ -41,8 +39,6 @@ int main()
     
     clock_t clockEnds=clock();
     
-    
-    printTheArray(theArray, end);
     
     
     //print time //human readable
