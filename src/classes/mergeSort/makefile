@@ -20,13 +20,17 @@ app.o: app.c merge.h
 	gcc -c app.c
 
 generateInputs:
-	gcc *testCase.c -o testCase
+	gcc *100m.c -o hundredMilion
+	gcc *200t.c -o twoHundredThousand
 
-	./testCase 100.000.000 > hundredMillion.txt
-	./testCase 200.000 > twoHundredThousand.txt
+	./hundredMilion > hundredMillion.txt
+	./twoHundredThousand > twoHundredThousand.txt
 
 clean:
 	rm app *.o
-	rm testCase
+
+	rm hundredMilion
+	rm twoHundredThousand
+
 	rm twoHundredThousand.txt
 	rm hundredMillion.txt
