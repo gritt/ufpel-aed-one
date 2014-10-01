@@ -1,5 +1,5 @@
-app: merge.o app.o
-	gcc merge.o app.o -o app
+app: merge.o insertion.o app.o
+	gcc merge.o insertion.o app.o -o app
 
 	#————————————————————————————-|
 	#                             |
@@ -8,8 +8,11 @@ app: merge.o app.o
 	#                             |
 	#————————————————————————————-|
 
-merge.o: merge.c merge.h
+merge.o: merge.c merge.h insertion.h
 	gcc -c merge.c
+
+insertion.o: insertion.c insertion.h
+	gcc -c insertion.c
 
 app.o: app.c merge.h
 	gcc -c app.c
