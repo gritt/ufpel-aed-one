@@ -1,7 +1,7 @@
 #ifndef MERGE_H_
 #define MERGE_H_
 
-#define ARRAY_SIZE_LIMIT 10
+#define BASE_CASE 3
 
 void mergeSort(int *array, int *arrayCopy, int begin, int end);
 

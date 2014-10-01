@@ -1,12 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 #include "merge.h"
 
 int main()
 {
     int arraySize;
-
+    double seconds;
+    
     int *theArray;
     int *theArrayCopy;
     
@@ -30,11 +32,22 @@ int main()
     int end = arraySize;
     
     
-    printTheArray(theArray, end);
+    
+    clock_t clockStarts=clock();
     
     mergeSort(theArray, theArrayCopy, begin, end);
     
-    printTheArray(theArray, end);
+    clock_t clockEnds=clock();
+    
+    
+    
+    //print time //human readable
+    seconds = (double)(clockEnds - clockStarts) / (double)CLOCKS_PER_SEC;
+    
+    printf("\nStarted at: %g", (double)clockStarts/(double)CLOCKS_PER_SEC);
+    printf("\nCompleted at: %g", (double)clockEnds/(double)CLOCKS_PER_SEC);
+    
+    printf("\nExecution time in seconds: %g", seconds);
 
     
     return 1;

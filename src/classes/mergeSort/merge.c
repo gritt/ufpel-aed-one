@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include "merge.h"
-
+#include "insertion.h"
 
 void mergeSort(int *array, int *arrayCopy, int begin, int end)
 {
@@ -9,7 +9,10 @@ void mergeSort(int *array, int *arrayCopy, int begin, int end)
     //printTheArray(array, end);
     
     //if passes it's the base case
-    if ((end - begin) == 1) {
+    if ((end - begin) <= BASE_CASE) {
+        
+        //uses insertionSort instead of spliting array again
+        insertionSort(array, end);
         return;
     }
     
@@ -55,7 +58,6 @@ void copyArray(int *array, int *arrayCopy, int begin, int end)
         array[i] = arrayCopy[i];
     }
 }
-
 
 void populateTheArray(int *array, int arraySize)
 {
