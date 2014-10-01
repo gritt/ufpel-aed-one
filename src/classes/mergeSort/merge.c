@@ -6,19 +6,15 @@
 void mergeSort(int *array, int *arrayCopy, int begin, int end)
 {
     //where 'end' is also the current array size;
-    printTheArray(array, end);
-    
+    //printTheArray(array, end);
     
     //if passes it's the base case
     if ((end - begin) == 1) {
         return;
     }
     
-    
     //where will split
     int middle = (begin + end ) / 2;
-    
-    
     
     //split from begining to mid
     mergeSort(array, arrayCopy, begin, middle);
@@ -26,11 +22,8 @@ void mergeSort(int *array, int *arrayCopy, int begin, int end)
     //split from middle + 1 to end
     mergeSort(array, arrayCopy, middle, end);
     
-    
-    
     //compares positions and swap
     merge(array, arrayCopy, begin, middle, end);
-    
     
     //copy merged array
     copyArray(array, arrayCopy, begin, end);
@@ -62,27 +55,6 @@ void copyArray(int *array, int *arrayCopy, int begin, int end)
         array[i] = arrayCopy[i];
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 void populateTheArray(int *array, int arraySize)
