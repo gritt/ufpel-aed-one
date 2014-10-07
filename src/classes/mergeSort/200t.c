@@ -3,10 +3,10 @@
 
 int main ()
 {
-    printf("%d \n", 200);
+    printf("%d \n", 200000);
     
-    for(int i = 0 ; i < 200; i++) {
-        printf("%d \n", rand()%200);
+    for(long int i = 0 ; i < 200000; i++) {
+        printf("%d \n", rand()%200000);
     }
     
     return 0;
