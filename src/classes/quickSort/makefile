@@ -1,5 +1,5 @@
-quickSort: app.o quickSort.o
-	gcc app.o quickSort.o -o quickSort
+app: input.o array.o quickSort.o app.o
+	gcc input.o array.o quickSort.o app.o -o app
 
 	#———————————————————————————————————————————|
 	#                                           |
@@ -10,17 +10,19 @@ quickSort: app.o quickSort.o
 	# execution scenario                        |
 	# best, worst or random array               |
 	#———————————————————————————————————————————|
-	
 
-app.o: app.c quickSort.h
-	gcc -c app.c
+input.o: input.c input.h
+	gcc -c input.c
 
 array.o: array.c array.h input.h
 	gcc -c array.c
 
-quickSort.o: quickSort.c quickSort.h array.h
+quickSort.o: quickSort.c quickSort.h
 	gcc -c quickSort.c
 
+app.o: app.c array.h quickSort.h
+	gcc -c app.c
+	
 clean:
 	rm *.o
-	rm quickSort
+	rm app
