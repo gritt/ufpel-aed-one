@@ -1,29 +1,44 @@
 #include <stdio.h>
+#include "input.h"
 
-#include 'input.h'
-
-
-
-void buildArrayWithTaxonomy(int type)
+void buildArrayWithTaxonomy(int *theArrayPointer, int type, int arraySize)
 {
-    int size = ARRAY_SIZE;
+    printf("\n size: %d", arraySize);
     
     switch (type) {
 
         case 1:
-            generateRandomInputForSize(size);
+            generateRandomInputForSize(theArrayPointer, arraySize);
             break;
             
         case 2:
-            generateBestCaseInputForSize(size);
+            generateBestCaseInputForSize(theArrayPointer, arraySize);
             break;
 
         case 3:
-            generateWorstCaseInputForSize(size);
+            generateWorstCaseInputForSize(theArrayPointer, arraySize);
             break;
             
         default:
             printf("\nInvalid option");
             break;
     }
+}
+
+void printTheArray(int *theArrayPointer, int arraySize)
+{
+    printf("{");
+    
+    for (int i = 0; i < arraySize; i++) {
+        printf("%d", theArrayPointer[i]);
+        
+        //dont print comma for the last int in array
+        if (i + 1 == arraySize) {
+            continue;
+        }
+        
+        printf(",");
+    }
+    
+    printf("} \n");
 }
