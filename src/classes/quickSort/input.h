@@ -1,10 +1,10 @@
-#ifndef INPUT_H
-#define INPUT_H
+#ifndef INPUT_H_
+#define INPUT_H_
 
-void generateRandomInputForSize(int size);
+void generateRandomInputForSize(int *theArrayPointer, int arraySize);
 
-void generateBestCaseInputForSize(int size);
+void generateBestCaseInputForSize(int *theArrayPointer, int arraySize);
 
-void generateWorstCaseInputForSize(int size);
+void generateWorstCaseInputForSize(int *theArrayPointer, int arraySize);
 
 #endif
