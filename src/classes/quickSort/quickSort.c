@@ -7,7 +7,8 @@ void quickSort(int *theArray, int pivot, int right) {
     
     int aux;
     
-    printTheArray(theArray, right);
+    //comment this out cause printing takes to much time
+    //printTheArray(theArray, right);
     
     if (pivot < right) {
         
