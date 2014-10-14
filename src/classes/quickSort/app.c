@@ -1,30 +1,34 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
-#include 'array.h'
-#include 'input.c'
-#include 'quickSort.h'
-
+#include "array.h"
+#include "quickSort.h"
 
 int main()
 {
-    int type;
+    int *theArray;
+    int type, size = ARRAY_SIZE;
+    double seconds;
+    
+    
     
     printf("\nChoose the array type");
-    printf("\n(1)Random | (2) Best case | (3) Worst case");
-    
+    printf("\n(1)Random | (2) Best case | (3) Worst case: ");
     scanf("%d", &type);
     
-
-    buildArrayWithTaxonomy(type);
-    
-    //populate array
     
     
-        //measure time
-    //sort
-        //measure time
+    if ((theArray = malloc(size * sizeof(int))) == NULL) {
+        printf("Failed to allocate memory. exit");
+    }
+    
+    theArray = malloc(size * sizeof(int));
     
     
-    //result
+    buildArrayWithTaxonomy(theArray, type, size);
+    
+    
+    int pivot = 0;
+    quickSort(theArray, pivot, size);
 }
