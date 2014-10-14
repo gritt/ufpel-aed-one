@@ -3,8 +3,6 @@
 
 void buildArrayWithTaxonomy(int *theArrayPointer, int type, int arraySize)
 {
-    printf("\n size: %d", arraySize);
-    
     switch (type) {
 
         case 1:
