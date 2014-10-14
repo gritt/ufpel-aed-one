@@ -5,6 +5,7 @@
 
 
 void buildArrayWithTaxonomy(int *theArrayPointer, int type, int arraySize);
+
 void printTheArray(int *theArrayPointer, int arraySize);
 
 #endif
