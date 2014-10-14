@@ -3,4 +3,8 @@
 
 #define BASE_CASE 20
 
+void quickSort(int *theArray, int pivot, int right);
+
+int partition(int *theArray, int l, int r);
+
 #endif
