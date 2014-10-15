@@ -34,7 +34,9 @@ int main()
     
     clock_t clockStarts=clock();
     
-    quickSort(theArray, pivot, size);
+    //quickSort(theArray, pivot, size);
+    
+    quickSortWithInsertionSort(theArray, pivot, size);
     
     clock_t clockEnds=clock();
     
