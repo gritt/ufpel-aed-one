@@ -36,7 +36,7 @@ void quickSortWithInsertionSort(int *theArray, int pivot, int right)
 
     } else if(right <= BASE_CASE) {
         
-        //dont split again, user insertion sort instead
+        //dont split again, use insertion sort instead
         insertionSort(theArray, right);
     }
         
