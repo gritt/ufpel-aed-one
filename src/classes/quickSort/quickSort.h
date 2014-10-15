@@ -5,6 +5,8 @@
 
 void quickSort(int *theArray, int pivot, int right);
 
+void quickSortWithInsertionSort(int *theArray, int pivot, int right);
+
 int partition(int *theArray, int l, int r);
 
 #endif
