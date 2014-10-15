@@ -21,15 +21,25 @@ void quickSort(int *theArray, int pivot, int right) {
     }
 }
 
-void quickSortWithInsertion(int *theArray, int pivot, int right)
+void quickSortWithInsertionSort(int *theArray, int pivot, int right)
 {
     int aux;
+    
+    printTheArray(theArray, right);
+    
+    if (pivot < right && right > BASE_CASE) {
+        
+        aux = partition(theArray, pivot, right);
+        
+        quickSortWithInsertionSort(theArray, pivot, aux - 1);
+        quickSortWithInsertionSort(theArray, aux + 1, right);
 
-    
-    printf("here");
-    
-    
-
+    } else if(right <= BASE_CASE) {
+        
+        //dont split again, user insertion sort instead
+        insertionSort(theArray, right);
+    }
+        
 }
 
 int partition(int *theArray, int l, int r)
