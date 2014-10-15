@@ -1,4 +1,4 @@
-#define ARRAY_SIZE 100000
+#define ARRAY_SIZE 100
 
 #ifndef ARRAY_H_
 #define ARRAY_H_
