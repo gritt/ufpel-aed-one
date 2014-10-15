@@ -25,7 +25,7 @@ void buildArrayWithTaxonomy(int *theArrayPointer, int type, int arraySize)
 
 void printTheArray(int *theArrayPointer, int arraySize)
 {
-    printf("{");
+    printf("\n{");
     
     for (int i = 0; i < arraySize; i++) {
         printf("%d", theArrayPointer[i]);
