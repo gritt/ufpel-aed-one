@@ -1,7 +1,7 @@
 #ifndef QUICKSORT_H_
 #define QUICKSORT_H_
 
-#define BASE_CASE 20
+#define BASE_CASE 100
 
 void quickSort(int *theArray, int pivot, int right);
 
