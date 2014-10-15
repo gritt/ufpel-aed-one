@@ -1,6 +1,8 @@
 #include <stdio.h>
 
 #include "quickSort.h"
+#include "insertionSort.h"
+
 #include "array.h"
 
 void quickSort(int *theArray, int pivot, int right) {
@@ -19,6 +21,16 @@ void quickSort(int *theArray, int pivot, int right) {
     }
 }
 
+void quickSortWithInsertion(int *theArray, int pivot, int right)
+{
+    int aux;
+
+    
+    printf("here");
+    
+    
+
+}
 
 int partition(int *theArray, int l, int r)
 {
