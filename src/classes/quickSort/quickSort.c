@@ -2,11 +2,10 @@
 
 #include "quickSort.h"
 #include "insertionSort.h"
-
 #include "array.h"
 
-void quickSort(int *theArray, int pivot, int right) {
-    
+void quickSort(int *theArray, int pivot, int right)
+{
     int aux;
     
     //comment this out cause printing takes to much time
@@ -25,7 +24,10 @@ void quickSortWithInsertionSort(int *theArray, int pivot, int right)
 {
     int aux;
     
-    printTheArray(theArray, right);
+    pivot = choosePivotByMedianOfThree(theArray, pivot, right);
+    
+    //comment this out cause printing takes to much time
+    //printTheArray(theArray, right);
     
     if (pivot < right && right > BASE_CASE) {
         
@@ -40,6 +42,36 @@ void quickSortWithInsertionSort(int *theArray, int pivot, int right)
         insertionSort(theArray, right);
     }
         
+}
+
+int choosePivotByMedianOfThree(int *theArray, int right, int left)
+{
+    int middle = (right + left) / 2;
+    
+    if (theArray[left] > theArray[right]) {
+        swapValuesPositions(theArray, theArray[left], theArray[right]);
+    }
+
+    if (theArray[middle] < theArray[left] ) {
+        swapValuesPositions(theArray, theArray[middle], theArray[left]);
+    }
+    
+    if (theArray[middle] > theArray[right]) {
+        swapValuesPositions(theArray, theArray[middle], theArray[right]);
+    }
+    
+    return middle;
+}
+
+void swapValuesPositions(int *theArray, int leftPosition, int rightPosition)
+{
+    int tmpPosition;
+    
+    tmpPosition = theArray[leftPosition];
+    
+    theArray[leftPosition] = theArray[rightPosition];
+    
+    theArray[rightPosition] = tmpPosition;
 }
 
 int partition(int *theArray, int l, int r)
