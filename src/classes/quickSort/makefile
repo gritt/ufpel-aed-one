@@ -3,7 +3,7 @@ app: input.o array.o insertionSort.o quickSort.o app.o
 
 	#————————————————————————————————————————————————————|
 	#                                                    |
-	# app - quickSort + insertionSort + median of three  |
+	# app - quickSort                                    |
 	#                                                    |
 	# just execute and select the                        |
 	# execution scenario                                 |
