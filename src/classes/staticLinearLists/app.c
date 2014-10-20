@@ -5,7 +5,7 @@
 
 int main()
 {
-    int listSize = 10;
+    int listSize = LIST_SIZE;
     
     listDescriptorType *myList;
     
