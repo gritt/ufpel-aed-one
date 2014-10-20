@@ -1,5 +1,5 @@
-#ifndef ____linkedList__
-#define ____linkedList__
+#ifndef ____staticList__
+#define ____staticList__
 
 #include <stdio.h>
 #include <stdlib.h>
