@@ -1,13 +1,10 @@
-app: node.o linkedList.o app.o
-	gcc node.o linkedList.o app.o -o app
+app: staticList.o app.o
+	gcc node.o staticList.o app.o -o app
 
-node.o: node.c node.h
-	gcc -c node.c
+staticList.o: staticList.c staticList.h
+	gcc -c staticList.c
 
-linkedList.o: linkedList.c linkedList.h node.h
-	gcc -c linkedList.c
-
-app.o: app.c linkedList.h
+app.o: app.c staticList.h
 	gcc -c app.c
 
 clean:
