@@ -1,6 +1,17 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#include "linkedList.h"
 
 int main()
 {
-    //..let's do it
+    int listSize = 10;
+    
+    listDescriptorType *myList;
+    
+    myList = initializeListWithSize(listSize);
+    
+    
+    
+    return 1;
 }
