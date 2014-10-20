@@ -1,5 +1,5 @@
 app: staticList.o app.o
-	gcc node.o staticList.o app.o -o app
+	gcc staticList.o app.o -o app
 
 staticList.o: staticList.c staticList.h
 	gcc -c staticList.c
