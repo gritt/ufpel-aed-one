@@ -57,7 +57,7 @@ int doesTheListHaveSpace(listDescriptorType *thelistDescriptor)
 void freesUpSpaceInTheList(listDescriptorType *thelistDescriptor, int position)
 {
     for (int i = thelistDescriptor->size; i <= position; i++) {
-        thelistDescriptor->array[i + 1] = thelistDescriptor[i];
+        thelistDescriptor->array[i + 1] = thelistDescriptor->array[i];
     }
 }
 
