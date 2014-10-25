@@ -9,13 +9,22 @@
 
 struct thelistDescriptor
 {
-    int size;
     int *array;
+    int last;
 };
 
 typedef struct thelistDescriptor listDescriptorType;
 
 listDescriptorType *initializeListWithSize(int listSize);
+
+
+int insert(listDescriptorType *thelistDescriptor, int element, int position);
+int delete(listDescriptorType *thelistDescriptor, int position);
+
+
+void printList(listDescriptorType *thelistDescriptor);
+int listLength(listDescriptorType *thelistDescriptor);
+
 
 int isValidPosition(listDescriptorType *thelistDescriptor, int position);
 int doesTheListHaveSpace(listDescriptorType *thelistDescriptor);

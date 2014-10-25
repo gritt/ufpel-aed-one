@@ -5,15 +5,12 @@ listDescriptorType *initializeListWithSize(int listSize)
     listDescriptorType *theList;
     
     theList = (listDescriptorType *) malloc(sizeof(listDescriptorType));
-    theList->size = listSize;
     
+    int *theArray = (int *) malloc(sizeof(int) * LIST_SIZE);
     
-    int *theArray = (int *) malloc(sizeof(int) * listSize);
-    
-    for (int i =0; i < listSize; i++) {
+    for (int i = 0; i < LIST_SIZE; i++) {
         theArray[i] = -1;
     }
-    
     
     theList->array = theArray;
     
@@ -22,61 +19,63 @@ listDescriptorType *initializeListWithSize(int listSize)
 
 int insert(listDescriptorType *thelistDescriptor, int element, int position)
 {
-    if (!doesTheListHaveSpace(thelistDescriptor)) return 0;
-    if (!isValidPosition(thelistDescriptor, position)) return 0;
+    int theLast = listLength(thelistDescriptor);
     
-
-    freesUpSpaceInTheList(thelistDescriptor, position);
+    //error, the list it's full
+    if (theLast >= LIST_SIZE) {
+        return 0;
+    }
+    
+    //invalid / inexistent position
+    if ((position > LIST_SIZE) || (position < 1)) {
+        return 0;
+    }
+    
+    //free space to insert
+    //for (int i = LIST_SIZE; i <= position; i++) {
+    //    thelistDescriptor->array[i + 1] = thelistDescriptor->array[i];
+    //}
     
     thelistDescriptor->array[position] = element;
     
-    thelistDescriptor->size = thelistDescriptor->size + 1;
+    thelistDescriptor->last = theLast + 1;
     
     return 1;
 }
 
-int isValidPosition(listDescriptorType *thelistDescriptor, int position)
+int delete(listDescriptorType *thelistDescriptor, int position)
 {
-    if ((position > thelistDescriptor->size + 1) || (position < 1)) {
-        //invalid / inexistent position
-        return false;
+    if (position > thelistDescriptor->last) {
+        printf("\nThere is no element in position %d\n\n", position);
+        return 0;
     }
-    return true;
-}
+    
+    thelistDescriptor->last = thelistDescriptor->last - 1;
 
-int doesTheListHaveSpace(listDescriptorType *thelistDescriptor)
-{
-    if (thelistDescriptor->size >= LIST_SIZE) {
-        //error, the list it's full
-        return false;
+    for (int q = position; q < thelistDescriptor->last; q++) {
+        //Copy elements one by one to One position behind;
+        thelistDescriptor->array[q] = thelistDescriptor->array[q + 1];
     }
-    return true;
-}
-
-
-void freesUpSpaceInTheList(listDescriptorType *thelistDescriptor, int position)
-{
-    for (int i = thelistDescriptor->size; i <= position; i++) {
-        thelistDescriptor->array[i + 1] = thelistDescriptor->array[i];
-    }
-}
-
-
-
-int get()
-{
+    
     return 1;
 }
 
-void set()
+int listLength(listDescriptorType *thelistDescriptor)
 {
+    int listLength = 0;
+    
+    for (int i=0; i < LIST_SIZE; i++) {
+        if (thelistDescriptor->array[i] != -1) {
+            listLength = listLength + 1;
+        }
+    }
+    
+    return listLength;
 }
 
-int lenght()
+void printList(listDescriptorType *thelistDescriptor)
 {
-    return 1;
-}
-
-void delete()
-{
+    for (int i=0; i < LIST_SIZE; i++) {
+        printf("%d, ", thelistDescriptor->array[i]);
+    }
 }
