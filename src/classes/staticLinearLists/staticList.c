@@ -60,6 +60,35 @@ int delete(listDescriptorType *thelistDescriptor, int position)
     return 1;
 }
 
+int get(listDescriptorType *thelistDescriptor, int position)
+{
+    if (position > LIST_SIZE || position < 1) {
+        printf("\n Invalid positon");
+    }
+    
+    if (thelistDescriptor->array[position] == -1) {
+        printf("\n This position is empty");
+    }
+    
+    printf ("\n\nFound: %d in positon: %d.\n\n", thelistDescriptor->array[position], position);
+
+    return thelistDescriptor->array[position];
+}
+
+int set(listDescriptorType *thelistDescriptor, int element, int position)
+{
+    if (position > LIST_SIZE || position < 1) {
+        printf("\n Invalid position");
+        return 0;
+    }
+    
+    thelistDescriptor->array[position] = element;
+    
+    printf("\n\nElement :%d set to position: %d\n\n", element, position);
+    
+    return 1;
+}
+
 int listLength(listDescriptorType *thelistDescriptor)
 {
     int listLength = 0;

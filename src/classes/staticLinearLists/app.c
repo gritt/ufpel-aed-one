@@ -12,14 +12,12 @@ int main()
     
     myList = initializeListWithSize(listSize);
     
-    
-    
-    printf("\nList of %d values built sucessfully\n", listSize);
-    printf("\n(1)Insert\n(2)Get\n(3)Set\n(4)Delete\n(5)List Size\n");
-    printf("\nChoose an option to manage the list:");
-    scanf("%d", &option);
-    
     while (option != 0) {
+        
+        printf("\nList of %d values built sucessfully\n", listSize);
+        printf("\n(1)Insert\n(2)Get\n(3)Set\n(4)Delete\n(5)List Size\n");
+        printf("\nChoose an option to manage the list:");
+        scanf("%d", &option);
         
         switch (option) {
             case 1:
@@ -30,14 +28,26 @@ int main()
                 scanf("%d", &position);
                 
                 insert(myList, value, position);
+                
                 break;
                 
             case 2:
-                printf("2");
+                printf("\n\nInform the position you want to get: ");
+                scanf("%d", &position);
+                
+                get(myList, position);
+                
                 break;
                 
             case 3:
-                printf("3");
+                printf("\n\nInform the value to set: ");
+                scanf("%d", &value);
+                
+                printf("\n\nInform the position to set: ");
+                scanf("%d", &position);
+                
+                set(myList, value, position);
+                
                 break;
                 
             case 4:
@@ -48,18 +58,15 @@ int main()
                 break;
                 
             case 5:
-                printf("5");
+                printf("\n\nList Length: %d\n\n", listLength(myList));
                 break;
                 
             default:
-                printf("invalid");
+                printf("\n\nInvalid Option\n\n");
                 break;
         }
         
         printList(myList);
-        
-        printf("\n(0)To exit, or choose an option: ");
-        scanf("%d", &option);
     }
     
     return 1;
