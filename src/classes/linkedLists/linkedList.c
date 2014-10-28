@@ -18,7 +18,7 @@ void initializeList(linkedList *list)
 
 int insert(int value, int position, linkedList *list)
 {
-    if (isValidPosition(list, position) == false){
+    if (isValidPositionToInsert(list, position) == false){
         printf("\n\nInvalid position djow");
         return 0;
     }
@@ -54,13 +54,59 @@ int insert(int value, int position, linkedList *list)
     return 1;
 }
 
-int delete(int position, linkedList *list);
+int delete(int position, linkedList *list)
+{
+    node *n1 = list->firstNode;
+    node *n2 = list->firstNode;
+    
+    if (isValidPositionToDelete(list, position) == false) {
+        printf("\n\nInvalid Position\n\n");
+        return 0;
+    }
+    
+    if (position == 0) {
+        if (n1->nextNode != NULL) {
+            n1 = n1->nextNode;
+            list->firstNode = n1;
+            list->size--;
+        } else {
+            list->firstNode = NULL;
+            list->size--;
+        }
+    }
+    
+    if (position > 0) {
+        for(int i = 1; i < position; i++) {
+            n1 = n1->nextNode;
+        }
+        
+        for(int i = 1; i < position + 1; i++) {
+            n2 = n1->nextNode;
+        }
+        
+        n1->nextNode = n1;
+        list->size--;
+    }
+
+    return 1;
+}
+
+int get(int position, linkedList *list)
 {
 }
 
-bool isValidPosition(linkedList *list, int position)
+bool isValidPositionToInsert(linkedList *list, int position)
 {
     if (position <= list->size && position >=0) {
+        return true;
+    }
+    
+    return false;
+}
+
+bool isValidPositionToDelete(linkedList *list, int position)
+{
+    if (position > 0 && list->size > 0) {
         return true;
     }
     

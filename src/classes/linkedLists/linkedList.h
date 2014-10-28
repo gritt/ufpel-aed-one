@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <string.h>
 
 typedef struct nodeStruct
 {
@@ -44,6 +45,7 @@ void print(linkedList *list);
 /* 
  * Auxiliar functions
  */
-bool isValidPosition(linkedList *list, int position);
+bool isValidPositionToInsert(linkedList *list, int position);
+bool isValidPositionToDelete(linkedList *list, int position);
 
 #endif /* defined(____linkedList__) */
