@@ -22,7 +22,7 @@ typedef struct nodeStruct
 
 typedef struct linkedListStruct
 {
-    int listSize;
+    int size;
     node *firstNode;
     
 } linkedList;
@@ -34,10 +34,16 @@ int insert(int value, int position, linkedList *list);
 
 int set(int value, int position, linkedList *list);
 
-int get(int position, linkedList list);
+int get(int position, linkedList *list);
 
-int delete(int position, linkedList list);
+int delete(int position, linkedList *list);
 
 void print(linkedList *list);
+
+
+/* 
+ * Auxiliar functions
+ */
+bool isValidPosition(linkedList *list, int position);
 
 #endif /* defined(____linkedList__) */
