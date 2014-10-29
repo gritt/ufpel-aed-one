@@ -14,17 +14,17 @@
 #include <stdbool.h>
 #include <string.h>
 
-typedef struct nodeStruct
+struct node;
 {
     int key;
     struct node *nextNode;
 
-} node;
+};
 
 typedef struct linkedListStruct
 {
     int size;
-    node *firstNode;
+    struct node *firstNode;
     
 } linkedList;
 

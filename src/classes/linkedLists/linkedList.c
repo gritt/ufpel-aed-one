@@ -24,15 +24,15 @@ int insert(int value, int position, linkedList *list)
     }
 
     
-    node *newNode = (node *) malloc(sizeof(node));
+    struct node *newNode = (struct node *) malloc(sizeof(struct node));
     newNode->key = value;
     
     if (position == 0) {
         
         if (list->size == 0)
-            newNode->nextNode = NULL;
+            newNode.nextNode = NULL;
         else
-            newNode->nextNode = list->firstNode;
+            newNode.nextNode = list->firstNode;
         
         list->firstNode = newNode;
         list->size++;
@@ -40,7 +40,7 @@ int insert(int value, int position, linkedList *list)
         return 1;
     }
     
-    node *nextPositionNode = list->firstNode;
+    struct node *nextPositionNode = list->firstNode;
     
     for (int i=0; i < position -1; i++) {
         nextPositionNode = nextPositionNode->nextNode;
@@ -56,8 +56,8 @@ int insert(int value, int position, linkedList *list)
 
 int delete(int position, linkedList *list)
 {
-    node *n1 = list->firstNode;
-    node *n2 = list->firstNode;
+    struct node *n1 = list->firstNode;
+    struct node *n2 = list->firstNode;
     
     if (isValidPositionToDelete(list, position) == false) {
         printf("\n\nInvalid Position\n\n");
@@ -95,7 +95,7 @@ int get(int position, linkedList *list)
 {
     if (list->size > 0 && position > 0 && position <= list->size) {
         
-        node *n = list->firstNode;
+        struct node *n = list->firstNode;
         
         for (int i=0; i < position -1; i++) {
             n = n->nextNode;
@@ -113,7 +113,7 @@ int get(int position, linkedList *list)
 
 int set(int value, int position, linkedList *list)
 {
-    node *n = list->firstNode;
+    struct node *n = list->firstNode;
     
     if (list->size > 0 && position > 0 && position <= list->size) {
         
@@ -130,14 +130,13 @@ int set(int value, int position, linkedList *list)
 
 void print(linkedList *list)
 {
-    node *n = list->firstNode;
+    struct node *n = list->firstNode;
     
     for (int i=0; i < list->size; i++) {
         printf("\n%d", n->key);
-        n= n->nextNode;
+        n = n->nextNode;
     }
 }
-
 
 bool isValidPositionToInsert(linkedList *list, int position)
 {
