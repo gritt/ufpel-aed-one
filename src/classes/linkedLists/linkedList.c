@@ -111,6 +111,34 @@ int get(int position, linkedList *list)
     return 0;
 }
 
+int set(int value, int position, linkedList *list)
+{
+    node *n = list->firstNode;
+    
+    if (list->size > 0 && position > 0 && position <= list->size) {
+        
+        for (int i=0; i < position -1; i++) {
+            n = n->nextNode;
+        }
+        
+        n->key = value;
+        
+    } else {
+        printf("The list is empty or you've provided an invalid position");
+    }
+}
+
+void print(linkedList *list)
+{
+    node *n = list->firstNode;
+    
+    for (int i=0; i < list->size; i++) {
+        printf("\n%d", n->key);
+        n= n->nextNode;
+    }
+}
+
+
 bool isValidPositionToInsert(linkedList *list, int position)
 {
     if (position <= list->size && position >=0) {
