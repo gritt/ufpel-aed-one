@@ -93,6 +93,22 @@ int delete(int position, linkedList *list)
 
 int get(int position, linkedList *list)
 {
+    if (list->size > 0 && position > 0 && position <= list->size) {
+        
+        node *n = list->firstNode;
+        
+        for (int i=0; i < position -1; i++) {
+            n = n->nextNode;
+        }
+        
+        return &(n->key);
+
+    } else {
+        
+        printf("The list is empty or you've provided an invalid position");
+    }
+    
+    return 0;
 }
 
 bool isValidPositionToInsert(linkedList *list, int position)
