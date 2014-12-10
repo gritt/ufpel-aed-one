@@ -7,7 +7,7 @@ int main()
     char wantToContinue;
     
     
-    Tree *christmasTree;
+    struct tree *christmasTree;
     christmasTree = initializeTree();
     
     
@@ -44,12 +44,24 @@ void printMenu()
     printf("\nSelect one action by number : ");
 }
 
-void performActionInTree(int action, Tree * thisTree)
+void performActionInTree(int action, struct tree * thisTree)
 {
+    int valueToInsert;
+    
+    
     switch (action) {
+
         case 1:
-            insertInTree(thisTree);
+            
+            printf("\nValue : ");
+            scanf("%d", &valueToInsert);
+            
+            insertInTree(thisTree, valueToInsert);
+        
             break;
+        
+        
+        
         case 2:
             //show
             break;

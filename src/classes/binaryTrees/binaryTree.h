@@ -7,23 +7,18 @@
 #include <string.h>
 
 struct node {
-    int key;
-    struct node *father;
-    struct node *leftNode;
-    struct node *rightNode;
+    int value;
+    struct node *left;
+    struct node *right;
 };
 
-typedef struct tree {
+struct tree {
     int size;
     struct node *rootNode;
-} Tree;
+};
 
 
-/*
- * binary tree functions
- */
-Tree * initializeTree();
-
-void insertInTree(Tree *thisTree);
+struct tree * initializeTree();
+int insertInTree(struct tree *thisTree, int valueToInsert);
 
 #endif
