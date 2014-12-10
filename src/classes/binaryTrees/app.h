@@ -2,6 +2,6 @@
 #define ____app__
 
 void printMenu();
-void performAction(int actionIdentifier);
+void performActionInTree(int actionIdentifier, Tree * thisTree);
 
 #endif

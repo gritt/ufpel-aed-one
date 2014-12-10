@@ -1,25 +1,27 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
-#include <string.h>
-
+#include "binaryTree.h"
 #include "app.h"
 
 int main()
 {
-    int selectedMenu;
+    int selectedAction;
+    char wantToContinue;
+    
+    
+    Tree *christmasTree;
+    christmasTree = initializeTree();
+    
     
     do {
-    
         printMenu();
         
-        scanf("%d", &selectedMenu);
+        scanf("%d", &selectedAction);
+        performActionInTree(selectedAction, christmasTree);
         
-        performAction(selectedMenu);
         
-        printf("Do you want to continue? \n");
+        printf("\n\nDo you want to continue? (Y/N) :");
+        scanf("%s", &wantToContinue);
         
-    } while (selectedMenu != 0);
+    } while (wantToContinue == 'Y' || wantToContinue == 'y');
     
     return 1;
 }
@@ -38,13 +40,15 @@ void printMenu()
     printf("\n(7) - Successor");
     
     printf("\n(8) - Delete Item");
+    
+    printf("\nSelect one action by number : ");
 }
 
-void performAction(int actionIdentifier)
+void performActionInTree(int action, Tree * thisTree)
 {
-    switch (actionIdentifier) {
+    switch (action) {
         case 1:
-            //insert
+            insertInTree(thisTree);
             break;
         case 2:
             //show
