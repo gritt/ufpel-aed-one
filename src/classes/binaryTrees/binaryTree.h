@@ -6,16 +6,24 @@
 #include <stdbool.h>
 #include <string.h>
 
-struct treeDescriptor {
-    int size;
-    int *rootNode;
-}
-
 struct node {
     int key;
-    int *father;
-    int *leftNode;
-    int *rightNode;
-}
+    struct node *father;
+    struct node *leftNode;
+    struct node *rightNode;
+};
+
+typedef struct tree {
+    int size;
+    struct node *rootNode;
+} Tree;
+
+
+/*
+ * binary tree functions
+ */
+Tree * initializeTree();
+
+void insertInTree(Tree *thisTree);
 
 #endif
